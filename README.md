@@ -1,109 +1,134 @@
-# 🧮 Algorithm Level 5 - Data Structures Library
+# 📚 My Data Structures Library (DS Lib)
 
-A comprehensive C++ library implementing essential **Data Structures** and **Algorithms** with a clean, template-based, object-oriented approach. Built for educational purposes and practical use in various applications.
-
----
-
-## ✨ Features
-
-### 📊 Core Data Structures
-- ✅ **Dynamic Array** (`clsDynamicArray`) - Resizable array with full CRUD operations
-- ✅ **Doubly Linked List** (`clsDblLinkedList`) - Efficient insertion/deletion from both ends
-- ✅ **Queue** (`clsMyQueue`) - FIFO data structure using linked list
-- ✅ **Queue Array** (`clsMyQueueArr`) - FIFO data structure using dynamic array
-- ✅ **Stack** (`clsMyStack`) - LIFO data structure using linked list
-- ✅ **Stack Array** (`clsMyStackArr`) - LIFO data structure using dynamic array
-
-### 🔧 Utility Libraries
-- ✅ **String Manipulation** (`clsString`) - Advanced string operations (split, join, trim, reverse, case conversion)
-- ✅ **Date Handling** (`clsDate`) - Comprehensive date operations (add/subtract days, compare dates, format)
-- ✅ **Queue Line System** (`clsQueueLine`) - Real-world ticket/queue management system
-
-### 🎯 Advanced Features
-- 🔄 **Undo/Redo** functionality (`clsMyString`)
-- 📝 **Ticket Queue System** with waiting time estimation
-- 🔁 **Stack/Queue Reversal** operations
-- 📊 **Capacity Management** with dynamic resizing
+A comprehensive C++ library implementing essential **Data Structures** with a clean, template-based, object-oriented approach. Built as a personal toolkit for efficient and reusable data structures in various applications.
 
 ---
 
-## 🛠️ Tech Stack
+## 📦 Library Overview
 
-- **Language**: C++17
-- **Paradigm**: Object-Oriented Programming (OOP)
-- **Key Concepts**: Templates, Data Structures, Algorithms, File I/O
-- **Libraries**: Standard C++ Library (STL concepts)
+This is my personal **Data Structures Library** that I built to master C++ templates, OOP, and memory management. It provides ready-to-use implementations of fundamental data structures with intuitive APIs.
 
 ---
 
-## 📂 Project Structure
+## 🏗️ Data Structures Included
 
-```
-Algorithm-Level-5-Course-13-/
-│
-├── Algorithm Level 5/                     # Main source folder
-│   ├── clsString.h                        # String manipulation library
-│   ├── clsDate.h                          # Date operations library
-│   ├── clsDynamicArray.h                  # Dynamic array implementation
-│   ├── clsDblLinkedList.h                 # Doubly linked list implementation
-│   ├── clsMyQueue.h                       # Queue (Linked List based)
-│   ├── clsMyQueueArr.h                    # Queue (Array based)
-│   ├── clsMyStack.h                       # Stack (Linked List based)
-│   ├── clsMyStackArr.h                    # Stack (Array based)
-│   ├── clsMyString.h                      # String with Undo/Redo
-│   ├── clsQueueLine.h                     # Queue Line System
-│   ├── Algorithm Level 5.cpp              # Entry point / Demo
-│   └── Algorithm Level 5.vcxproj          # Visual Studio project file
-│
-├── Algorithm Level 5.sln                  # Visual Studio solution
-└── README.md                              # Project documentation
+### 🔹 Core Data Structures
+| Structure | Class | Description |
+|-----------|-------|-------------|
+| **Dynamic Array** | `clsDynamicArray<T>` | Resizable array with full CRUD operations |
+| **Doubly Linked List** | `clsDblLinkedList<T>` | Efficient insertion/deletion from both ends |
+| **Queue** | `clsMyQueue<T>` | FIFO data structure (Linked List based) |
+| **Queue** | `clsMyQueueArr<T>` | FIFO data structure (Array based) |
+| **Stack** | `clsMyStack<T>` | LIFO data structure (Linked List based) |
+| **Stack** | `clsMyStackArr<T>` | LIFO data structure (Array based) |
+
+### 🔹 Utility Libraries
+| Utility | Class | Description |
+|---------|-------|-------------|
+| **String** | `clsString` | Advanced string operations (split, join, trim, reverse, case conversion) |
+| **Date** | `clsDate` | Comprehensive date operations (add/subtract, compare, format) |
+| **Queue Line System** | `clsQueueLine` | Real-world ticket/queue management system |
+
+### 🔹 Advanced Features
+- ✅ **Undo/Redo** functionality (`clsMyString`)
+- ✅ **Ticket Queue System** with waiting time estimation
+- ✅ **Stack/Queue Reversal** operations
+- ✅ **Dynamic Capacity Management** with auto-resizing
+
+---
+
+## 🛠️ How to Use
+
+### 1️⃣ Include the Library
+```cpp
+#include "clsDynamicArray.h"
+#include "clsDblLinkedList.h"
+#include "clsMyQueue.h"
+#include "clsMyStack.h"
+#include "clsString.h"
+#include "clsDate.h"
 ```
 
+### 2️⃣ Example: Dynamic Array
+```cpp
+clsDynamicArray<int> arr(5);
+
+arr.SetItem(0, 10);
+arr.SetItem(1, 20);
+arr.SetItem(2, 30);
+arr.InsertAtEnd(40);
+arr.InsertAtBeginning(5);
+
+arr.PrintList(); // Output: 5 10 20 30 40
+
+arr.Reverse();
+arr.PrintList(); // Output: 40 30 20 10 5
+```
+
+### 3️⃣ Example: Queue System
+```cpp
+clsMyQueue<string> queue;
+
+queue.push("First");
+queue.push("Second");
+queue.push("Third");
+
+queue.Print(); // Output: First Second Third
+cout << "Front: " << queue.front(); // First
+cout << "Back: " << queue.back();   // Third
+```
+
+### 4️⃣ Example: Ticket Queue Line
+```cpp
+clsQueueLine bankQueue("A", 5); // Prefix "A", avg serve time 5 min
+
+bankQueue.IssueTicket(); // Ticket A1
+bankQueue.IssueTicket(); // Ticket A2
+bankQueue.IssueTicket(); // Ticket A3
+
+bankQueue.PrintInfo();
+bankQueue.PrintTicketsLineLTR();
+```
+
 ---
 
-## 📊 Data Structures Overview
+## 📂 Library Structure
 
-### 1. **Dynamic Array** (`clsDynamicArray<T>`)
-- Resize dynamically
-- Insert/Delete at any index
-- Find and Update elements
-- Reverse array
-
-### 2. **Doubly Linked List** (`clsDblLinkedList<T>`)
-- Insert at beginning/end/after node
-- Delete node/first/last
-- Reverse list
-- Find and Update elements
-
-### 3. **Queue** (`clsMyQueue<T>` & `clsMyQueueArr<T>`)
-- FIFO (First In, First Out)
-- Push, Pop, Front, Back
-- Print all elements
-- Clear queue
-
-### 4. **Stack** (`clsMyStack<T>` & `clsMyStackArr<T>`)
-- LIFO (Last In, First Out)
-- Push, Pop, Top, Bottom
-- Insert at top/bottom
-- Clear stack
-
-### 5. **Queue Line System** (`clsQueueLine`)
-- Real-world ticket management
-- Issue tickets with unique IDs
-- Track waiting clients
-- Estimate waiting time
-- Print tickets in LTR/RTL order
-
-### 6. **String Library** (`clsString`)
-- Split, Join, Trim
-- Case conversion (Upper/Lower/Invert)
-- Count letters, words, vowels
-- Remove punctuations
-- Replace words
+```
+My-DS-Lib/
+│
+├── Algorithm Level 5/                     # Library source folder
+│   ├── clsDynamicArray.h                  # Dynamic array
+│   ├── clsDblLinkedList.h                 # Doubly linked list
+│   ├── clsMyQueue.h                       # Queue (linked list based)
+│   ├── clsMyQueueArr.h                    # Queue (array based)
+│   ├── clsMyStack.h                       # Stack (linked list based)
+│   ├── clsMyStackArr.h                    # Stack (array based)
+│   ├── clsString.h                        # String utilities
+│   ├── clsDate.h                          # Date utilities
+│   ├── clsMyString.h                      # String with undo/redo
+│   ├── clsQueueLine.h                     # Queue line system
+│   ├── Algorithm Level 5.cpp              # Demo / Test file
+│   └── Algorithm Level 5.vcxproj          # Visual Studio project
+│
+├── Algorithm Level 5.sln                  # Solution file
+└── README.md                              # Documentation
+```
 
 ---
 
-## 🚀 How to Run
+## 🎯 Why This Library?
+
+- ✅ **Template-based**: Works with any data type
+- ✅ **OOP Design**: Clean, modular, and extensible
+- ✅ **Memory Safe**: Proper allocation/deallocation
+- ✅ **Intuitive API**: Easy to use and understand
+- ✅ **Production Ready**: Well-tested and reliable
+- ✅ **Educational**: Clean code for learning purposes
+
+---
+
+## 🚀 Quick Start
 
 1. **Clone the repository:**
    ```bash
@@ -117,112 +142,88 @@ Algorithm-Level-5-Course-13-/
 
 3. **Build & Run** using Visual Studio (2019 or later)
 
----
-
-## 💻 Code Example
-
-### Using the Queue System:
-
-```cpp
-#include "clsQueueLine.h"
-
-int main() {
-    // Create a queue line with prefix "A" and average serve time 5 minutes
-    clsQueueLine Queue("A", 5);
-    
-    // Issue tickets
-    Queue.IssueTicket();
-    Queue.IssueTicket();
-    Queue.IssueTicket();
-    
-    // Print queue info
-    Queue.PrintInfo();
-    
-    // Print tickets
-    Queue.PrintTicketsLineLTR();
-    
-    return 0;
-}
-```
-
-### Using Dynamic Array:
-
-```cpp
-#include "clsDynamicArray.h"
-
-int main() {
-    clsDynamicArray<int> arr(5);
-    
-    arr.SetItem(0, 10);
-    arr.SetItem(1, 20);
-    arr.SetItem(2, 30);
-    
-    arr.InsertAtEnd(40);
-    arr.InsertAtBeginning(5);
-    
-    arr.PrintList(); // 5 10 20 30 40
-    
-    arr.Reverse();
-    arr.PrintList(); // 40 30 20 10 5
-    
-    return 0;
-}
-```
+4. **Start using the library in your projects!**
 
 ---
 
-## 📌 Key Features in Detail
+## 📊 Library Methods Overview
 
-### 🧵 String Library (`clsString`)
+### Dynamic Array (`clsDynamicArray<T>`)
 | Method | Description |
 |--------|-------------|
-| `Sblit()` | Split string by delimiter |
-| `JoinString()` | Join vector of strings |
-| `Trim()` | Remove spaces from both ends |
-| `AllUpperLetters()` | Convert to uppercase |
-| `ReverseWordsInString()` | Reverse word order |
-| `RemovePunctuationsFromString()` | Remove punctuation marks |
+| `SetItem(index, value)` | Set value at index |
+| `GetItem(index)` | Get value at index |
+| `InsertAtBeginning(value)` | Insert at start |
+| `InsertAtEnd(value)` | Insert at end |
+| `DeleteItemAt(index)` | Delete at index |
+| `Reverse()` | Reverse array |
+| `Find(value)` | Find element index |
+| `Clear()` | Clear all elements |
 
-### 📅 Date Library (`clsDate`)
+### Doubly Linked List (`clsDblLinkedList<T>`)
 | Method | Description |
 |--------|-------------|
-| `IsLeapYear()` | Check leap year |
-| `NumOfDaysInMonth()` | Days in month |
-| `DateAddDays()` | Add days to date |
-| `CalculateDiffrenceDays()` | Difference between dates |
-| `DayShortName()` | Get day name (Sun, Mon, etc.) |
-| `PrintMonthCalender()` | Print calendar for month |
+| `InsertAtBeginning(value)` | Insert at start |
+| `InsertAtEnd(value)` | Insert at end |
+| `InsertAfter(node, value)` | Insert after node |
+| `DeleteNode(node)` | Delete specific node |
+| `DeleteFirstNode()` | Delete first node |
+| `DeleteLastNode()` | Delete last node |
+| `Reverse()` | Reverse list |
+| `Find(value)` | Find node by value |
+
+### Queue (`clsMyQueue<T>`)
+| Method | Description |
+|--------|-------------|
+| `push(value)` | Add to back |
+| `pop()` | Remove from front |
+| `front()` | Get front element |
+| `back()` | Get back element |
+| `Size()` | Get queue size |
+| `Clear()` | Clear queue |
+
+### Stack (`clsMyStack<T>`)
+| Method | Description |
+|--------|-------------|
+| `push(value)` | Add to top |
+| `pop()` | Remove from top |
+| `Top()` | Get top element |
+| `Bottom()` | Get bottom element |
+| `Size()` | Get stack size |
+| `Clear()` | Clear stack |
 
 ---
 
-## 🎯 Use Cases
+## 🧪 Test & Demo
 
-- ✅ **Queue Line System**: Ticket management for banks, hospitals, or service centers
-- ✅ **String Processing**: Text analysis, formatting, and manipulation
-- ✅ **Date Calculations**: Scheduling, age calculation, vacation planning
-- ✅ **Data Structure Learning**: Educational reference for students
-- ✅ **Undo/Redo**: Text editors or form applications
+The library includes a comprehensive demo in `Algorithm Level 5.cpp` that showcases all data structures in action. Run it to see:
+
+- Dynamic array operations
+- Linked list manipulation
+- Queue and stack operations
+- String utilities
+- Date calculations
+- Queue line system simulation
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests are welcome! For major changes, please open an issue first.
+This is my personal library, but I welcome suggestions and improvements!
 
-### To contribute:
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create your feature branch (`git checkout -b feature/Improvement`)
+3. Commit your changes (`git commit -m 'Add improvement'`)
+4. Push to the branch (`git push origin feature/Improvement`)
 5. Open a Pull Request
 
 ---
 
-## 📧 Contact
+## 📫 Contact
 
 **Developer**: Abdulrhman  
-**Project**: Algorithm Level 5 - Course 13  
-**Course**: Data Structures & Algorithms
+**Library**: My DS Lib  
+**Built With**: ❤️ + C++
 
 ---
 
@@ -230,8 +231,9 @@ Pull requests are welcome! For major changes, please open an issue first.
 
 - All classes are **template-based** for maximum reusability
 - **Memory management** is handled with proper allocation/deallocation
-- **Educational focus** with clean, well-commented code
+- Code is **well-commented** for easy understanding
+- Perfect for **educational** and **production** use
 
 ---
 
-*Built with ❤️ for learning and teaching Data Structures & Algorithms*
+*Your personal Data Structures Library - Built from scratch with passion* 🚀
